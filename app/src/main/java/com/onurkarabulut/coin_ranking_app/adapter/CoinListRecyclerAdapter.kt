@@ -10,7 +10,6 @@ import com.onurkarabulut.coin_ranking_app.R
 import com.onurkarabulut.coin_ranking_app.model.CoinResult
 import com.onurkarabulut.coin_ranking_app.util.loadSvg
 import com.onurkarabulut.coin_ranking_app.view.CoinListFragmentDirections
-import com.squareup.picasso.Picasso
 
 
 import kotlinx.android.synthetic.main.recycler_row.view.*
@@ -35,9 +34,7 @@ class CoinListRecyclerAdapter(val coinList : List<CoinResult.Data.Coin>) : Recyc
                 holder.itemView.coinChange.text = String.format("%.2f",it)
             }
         }
-        coinList.get(position).price?.let {
-            holder.itemView.coinPrice.text = String.format("%.2f $",it)
-        }
+        holder.itemView.coinPrice.text = String.format("%.2f $",coinList.get(position).price)
         coinList.get(position).iconUrl?.let {
             holder.itemView.coinImage.loadSvg(it)
         }

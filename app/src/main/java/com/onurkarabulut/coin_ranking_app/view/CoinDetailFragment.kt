@@ -27,7 +27,6 @@ class CoinDetailFragment : Fragment() {
     private var _binding: FragmentCoinDetailBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter : CoinDetailSparkAdapter
-
     private lateinit var viewModel: CoinDetailViewModel
     private var coinId = ""
 
@@ -42,6 +41,7 @@ class CoinDetailFragment : Fragment() {
         viewModel.getSingleCoin(coinId)
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,6 +54,8 @@ class CoinDetailFragment : Fragment() {
         observeData()
         return view
     }
+
+
     private fun observeData(){
         viewModel.coinData.observe(viewLifecycleOwner, Observer { coin ->
             coin?.let {
@@ -87,19 +89,27 @@ class CoinDetailFragment : Fragment() {
             }
         })
     }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
     private fun updateDisplayWithData(data : CoinHistoryResult.Data.History){
         binding.priceLabel.text = NumberFormat.getInstance().format(data.price) + " $"
         binding.dateLabel.text = getDateTime(data.timestamp)
     }
+
+
     private fun getDateTime(s: Long): String? {
         val sdf = SimpleDateFormat("MM/dd/yyyy")
         val netDate = Date(s * 1000)
         return sdf.format(netDate).toString()
     }
+
+
     private fun buttonChange(){
         binding.priceLabel.setCharacterLists(TickerUtils.provideNumberList())
         radioGroupTimeSelection.setOnCheckedChangeListener { _, id ->
@@ -107,6 +117,8 @@ class CoinDetailFragment : Fragment() {
             else if (id == R.id.radioButtonWeek) viewModel.getCoinHistory(coinId,"7d")
             else if (id == R.id.radioButtonMonth) viewModel.getCoinHistory(coinId,"30d")
         }
+
+
         binding.coinDetailSparkView.isScrubEnabled = true
         binding.coinDetailSparkView.setScrubListener { itemData ->
             if (itemData is CoinHistoryResult.Data.History){
@@ -114,5 +126,4 @@ class CoinDetailFragment : Fragment() {
             }
         }
     }
-
 }

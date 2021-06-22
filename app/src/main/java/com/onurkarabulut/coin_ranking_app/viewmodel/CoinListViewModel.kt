@@ -1,17 +1,18 @@
 package com.onurkarabulut.coin_ranking_app.viewmodel
-
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.onurkarabulut.coin_ranking_app.model.CoinResult
 import com.onurkarabulut.coin_ranking_app.service.ApiClient
-
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class CoinListViewModel(application: Application) : AndroidViewModel(application) {
     private val apiClient = ApiClient()
+    private val TAG = "CoinListViewModel"
     val coinList = MutableLiveData<CoinResult>()
     val coinLoading = MutableLiveData<Boolean>()
 
@@ -24,8 +25,8 @@ class CoinListViewModel(application: Application) : AndroidViewModel(application
                coinLoading.value = false
            }
            override fun onFailure(call: Call<CoinResult>, t: Throwable) {
+               Log.e(TAG, "onFailure $t")
            }
-
        })
     }
 }

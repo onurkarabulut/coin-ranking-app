@@ -8,8 +8,6 @@ class CoinDetailSparkAdapter(private val coinData : List<CoinHistoryResult.Data.
 
     override fun getItem(index: Int): Any = coinData[index]
 
-
-
     override fun getY(index: Int): Float {
         val chosenTimeData = coinData[index]
         return chosenTimeData.price

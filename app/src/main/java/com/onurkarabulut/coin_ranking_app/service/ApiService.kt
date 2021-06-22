@@ -3,7 +3,6 @@ package com.onurkarabulut.coin_ranking_app.service
 import com.onurkarabulut.coin_ranking_app.model.SingleCoinResult
 import com.onurkarabulut.coin_ranking_app.model.CoinHistoryResult
 import com.onurkarabulut.coin_ranking_app.model.CoinResult
-import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

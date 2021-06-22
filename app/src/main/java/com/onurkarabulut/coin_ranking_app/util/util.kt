@@ -1,13 +1,7 @@
 package com.onurkarabulut.coin_ranking_app.util
-import android.content.Context
 import android.widget.ImageView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.decode.SvgDecoder
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.onurkarabulut.coin_ranking_app.R
-import com.onurkarabulut.coin_ranking_app.model.CoinHistoryResult
-import java.text.SimpleDateFormat
 import java.util.*
 
 
