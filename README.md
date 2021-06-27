@@ -12,3 +12,4 @@ Including:
 * Navigation
 * [Spark from Robinhood](https://github.com/robinhood/spark)
 * [Ticker from Robinhood](https://github.com/robinhood/ticker)
+* [Coinranking API](https://developers.coinranking.com/api)
