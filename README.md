@@ -10,5 +10,5 @@ Including:
 * Retrofit
 * Fragment
 * Navigation
-* Spark from Robinhood
-* Ticker from Robinhood
+* [Spark from Robinhood](https://github.com/robinhood/spark)
+* [Ticker from Robinhood](https://github.com/robinhood/ticker)
